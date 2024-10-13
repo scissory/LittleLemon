@@ -7,17 +7,40 @@ import Home from './components/Home';
 import Bookings from './components/Bookings';
 import ConfirmedBooking from './components/ConfirmedBooking';
 import EmptyPage from './components/EmptyPage';
-import { useRef } from 'react';
+
 
 function App() {
   return (
     
+    <>
       <Layout>
         <Routes>
           <Route path={pages.get('home').path} element={<Home />} />
-         
-        </Routes> 
+          <Route 
+            path={pages.get('about').path} 
+            element={<EmptyPage />} 
+          />
+          <Route 
+            path={pages.get('menu').path} 
+            element={<EmptyPage />} 
+          />
+          <Route path={pages.get('bookings').path} element={<Bookings />} />
+          <Route 
+            path={pages.get('confirmedBooking').path} 
+            element={<ConfirmedBooking />} 
+          />
+          <Route 
+            path={pages.get('orderOnline').path} 
+            element={<EmptyPage />} 
+          />
+          <Route 
+            path={pages.get('login').path} 
+            element={<EmptyPage />} 
+          />
+          <Route path="*" element={<EmptyPage />} />
+        </Routes>
       </Layout>
+    </>
     
   );
 };
